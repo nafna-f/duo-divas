@@ -1,1 +1,1 @@
-### AP Course Selection Program by DuoDivas
+# AP Course Selection Program by DuoDivas
