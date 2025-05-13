@@ -1,0 +1,9 @@
+nafM, duaB -- 2025-05-05
+- spoke to Mr. Dillon
+- CREATE planning doc [googdoc]
+
+nafM, duaB -- 2025-05-09
+- spoke to Mr. Dillon
+- CREATE planning.md
+- CREATE devlog.txt
+
