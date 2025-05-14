@@ -58,6 +58,8 @@ Some of these choices are more for testing purposes rather than actual use. How 
  
 ### Plans 
  
+(Plans that are highlighted **in bold** are plans that are approved by Mr. Dillon. Not all plans are required to be approved to follow through (for example, branching, since it is more of an internal development) 
+ 
 - Branching: We will branch off to do our work and push the latest **working version** of our project onto main. This way, we will always have a working version to refer back to and not need to be as cautious when working in experimental environments. 
 - Classes: For students themselves, we may switch from using dictionaries to **Classes**, as classes may be more efficient at organizing our data (sifting through an entire dictionary that large can be painful).
  
