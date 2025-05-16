@@ -1,9 +1,16 @@
 nafM, duaB -- 2025-05-05
-- spoke to Mr. Dillon
-- CREATE planning doc [googdoc]
+- SPEAK to Mr. Dillon
+- CREAT planning doc [googdoc]
 
 nafM, duaB -- 2025-05-09
-- spoke to Mr. Dillon
-- CREATE planning.md
-- CREATE devlog.txt
+- SPEAK Mr. Dillon
+- CREAT planning.md
+- CREAT devlog.txt
+- CREAT __init__.py
 
+nafM -- 2025-05-14
+- SPEAK Dillon
+
+nafM -- 2025-05-16
+- UPD __init__.py
+- UPD planning.md
