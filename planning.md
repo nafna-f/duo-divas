@@ -45,7 +45,13 @@ _Due to the nature of this project, we have decided having a planning page / fil
  	Talos takes cares of this. Talos will not allow a student to choose an AP course they are not eligible (exception: waitlist) for or have taken before.
 
 - Explain "ap_preferences.csv" to me. Specifically, why does a student have multi-line entries if all their rankings are to be on one line? Also, does the things in parenthesis "(must rank AP Physical Sci in other section)" matter to us?
+ 
+- What does "ZZNOAP{NAME}" mean? What about "ZQAP{NAME}"? 
+ 
+- We did some research, and the Talos site has "Active Courses" and "Courses". What is the difference, and do we care about either? 
 
+- There's a lot of codes that aren't courses, such as ZZNOAP{NAME} and ZQAP{NAME}. This is not highlighted in ap_courses.csv. Is there an easier way we can access this without having to read 1.1k entries on Talos?  
+ 
 ## Ideas / Plans:
 
 ### Our Sorting Algorithms / Features
