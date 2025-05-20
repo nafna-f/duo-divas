@@ -2,20 +2,19 @@
 # DuoDivas, Software Development
 # Nafiyu (Naf) Murtaza, Dua Baig
 
-# Classes
+# FILES
+courses = open('ap_courses.csv', 'r')
+prefs = open('ap_preferences.csv', 'r')
+gpa = open('subject_gpa.csv', 'r')
+stdata = open('student_data.csv', 'w')
 
-class Course:
-    # code: Course Code
-    # name: Course Name
-    # numSect: Number of Sections in this course
-    # numSeat: Number of Seats for this course
-    def __init__(a, code, name, numSect, numSeat):
-        a.code = code
-        a.name = name
-        a.numSect = numSect
-        a.numSeat = numSeat
-    def __str__(a):
-        return(f"{self.name}, Code: {self.code}, # of Sections: {self.numSect}, # of Seats: {self.numSeat}")
+# TRANSCRIPTION PROCESS
 
 
-class Student: # (later)
+# CLOSE READ FILES
+courses.close()
+prefs.close()
+gpa.close()
+
+# FINISHED, CLOSE 'student_data.csv'
+stdata.close()
