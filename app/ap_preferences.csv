@@ -200,7 +200,7 @@ first_name,last_name,student_id,ofcl,rule_id,rule_name,courses_1,courses_2,cours
 ,,340617,,141,AP Life Sci (Bio/APES/Psych - must rank AP Life Sci above),ZZNOAPBIO,ZZNOAPBIO,ZZNOAPBIO,,,,
 ,,340617,,143,AP Physical Science (must rank AP Physical Sci in other section),ZZNOAPPHY,ZZNOAPPHY,ZZNOAPPHY,,,,
 ,,594683,,133,AP English (must rank AP English in other section),ZZNOAPENG,ZZNOAPENG,ZZNOAPENG,,,,
-,,594683,,136,3 AP Courses,MCS43X,ZQAPBIO,FMS87X,,,,
+,,594683,,136,3 AP Courses,MCS43X,ZQAPBIO,FMS87X,,,,ZZ
 ,,594683,,138,AP MATH,MCS21X,,,,,,
 ,,594683,,141,AP Life Sci (Bio/APES/Psych - must rank AP Life Sci above),SBS43X,SQS21X,ZZNOAPBIO,,,,
 ,,594683,,143,AP Physical Science (must rank AP Physical Sci in other section),ZZNOAPPHY,ZZNOAPPHY,ZZNOAPPHY,,,,
