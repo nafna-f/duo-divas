@@ -1,20 +1,22 @@
-# AP Program Seat Selection Program
-# DuoDivas, Software Development
-# Nafiyu (Naf) Murtaza, Dua Baig
+# Testing with populated data since currently, we don't have the right files.
 
-# FILES
-courses = open('ap_courses.csv', 'r')
-prefs = open('ap_preferences.csv', 'r')
-gpa = open('subject_gpa.csv', 'r')
-stdata = open('student_data.csv', 'w')
+import DBModule as db
+import random
 
-# TRANSCRIPTION PROCESS
+# populate the db
 
+# GPA: id, eng, math, science, ss, artMusic
+# courseRank: id, ruleID, ruleName, oneID, twoID, threeID, fourID
+# studentAP: id, courseID, status
+# ApCourses: id, name, totalSeats, seatsTaken, seatsRemaining
 
-# CLOSE READ FILES
-courses.close()
-prefs.close()
-gpa.close()
+db.initDB()
 
-# FINISHED, CLOSE 'student_data.csv'
-stdata.close()
+for x in range(10):
+    db.addGPA(random.randint(0, 10000), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0))
+    db.addCourseRank(random.randint(0, 10000), random.randint(0, 10), "RULENAME", "COURSEONE", "COURSETWO", "COURSETHREE", "COURSEFOUR")
+    db.addStudentAP(random.randint(0, 10000), "COURSENAME", random.choice(["TRUE", "FALSE"]))
+    testSeatsTotal = random.randInt(20, 30)
+    testSeatsTaken = testSeatsTotal - random.randInt(0, testSeatsTotal)
+    testSeatsRemaining = testSeatsTotal - testSeatsTaken
+    db.addApCourses("COURSEID", "COURSENAME", testSeatsTotal, testSeatsTaken, testSeatsRemaining)
