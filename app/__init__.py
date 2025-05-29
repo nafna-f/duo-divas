@@ -12,11 +12,14 @@ import random
 
 db.initDB()
 
-for x in range(10):
+for x in range(1):
     db.addGPA(random.randint(0, 10000), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0))
     db.addCourseRank(random.randint(0, 10000), random.randint(0, 10), "RULENAME", "COURSEONE", "COURSETWO", "COURSETHREE", "COURSEFOUR")
     db.addStudentAP(random.randint(0, 10000), "COURSENAME", random.choice(["TRUE", "FALSE"]))
-    testSeatsTotal = random.randInt(20, 30)
-    testSeatsTaken = testSeatsTotal - random.randInt(0, testSeatsTotal)
+    testSeatsTotal = random.randint(20, 30)
+    testSeatsTaken = testSeatsTotal - random.randint(0, testSeatsTotal)
     testSeatsRemaining = testSeatsTotal - testSeatsTaken
     db.addApCourses("COURSEID", "COURSENAME", testSeatsTotal, testSeatsTaken, testSeatsRemaining)
+    print("ran\n") # test cmd
+
+db.viewTable()
