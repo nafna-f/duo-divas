@@ -14,3 +14,10 @@ nafM -- 2025-05-14
 nafM -- 2025-05-16
 - UPD __init__.py
 - UPD planning.md
+
+nafM, duaB -- 2025-05-29
+- UPD __init__.py
+- CREAT DBModule.py, UPD DBModule.py
+- SWP subject_gpa.csv
+- SWP Lists -> SQlite3
+- UPD planning.md
