@@ -13,6 +13,7 @@ def initDB():
               mathGPA DOUBLE,
               scienceGPA DOUBLE,
               socialStudiesGPA DOUBLE,
+              foreignLangGPA DOUBLE,
               artMusicGPA DOUBLE
               )
               '''
