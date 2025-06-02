@@ -1,5 +1,5 @@
 nafM, duaB -- 2025-05-05
-- SPEAK to Mr. Dillon
+- SPEAK Mr. Dillon
 - CREAT planning doc [googdoc]
 
 nafM, duaB -- 2025-05-09
@@ -9,7 +9,7 @@ nafM, duaB -- 2025-05-09
 - CREAT __init__.py
 
 nafM -- 2025-05-14
-- SPEAK Dillon
+- SPEAK Mr. Dillon
 
 nafM -- 2025-05-16
 - UPD __init__.py
@@ -21,3 +21,8 @@ nafM, duaB -- 2025-05-29
 - SWP subject_gpa.csv
 - SWP Lists -> SQlite3
 - UPD planning.md
+
+nafM, duaB -- 2025-05-02
+- UPD __init__.py {Naf -> POPULATE DB, Dua -> READ File}
+- UPD DBModule.py {MISC.}
+- UPD planning.md {* PLANS}

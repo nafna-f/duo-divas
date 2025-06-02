@@ -46,11 +46,13 @@ _Due to the nature of this project, we have decided having a planning page / fil
 
 - Explain "ap_preferences.csv" to me. Specifically, why does a student have multi-line entries if all their rankings are to be on one line? Also, does the things in parenthesis "(must rank AP Physical Sci in other section)" matter to us?
 
-- What does "ZZNOAP{NAME}" mean? What about "ZQAP{NAME}"?
+- ~~What does "ZZNOAP{NAME}" mean? What about "ZQAP{NAME}"?~~
 
-- We did some research, and the Talos site has "Active Courses" and "Courses". What is the difference, and do we care about either?
+- ~~We did some research, and the Talos site has "Active Courses" and "Courses". What is the difference, and do we care about either?~~
 
-- There's a lot of codes that aren't courses, such as ZZNOAP{NAME} and ZQAP{NAME}. This is not highlighted in ap_courses.csv. Is there an easier way we can access this without having to read 1.1k entries on Talos?  
+- ~~There's a lot of codes that aren't courses, such as ZZNOAP{NAME} and ZQAP{NAME}. This is not highlighted in ap_courses.csv. Is there an easier way we can access this without having to read 1.1k entries on Talos?~~
+
+- These questions are not significant to us, for now. When they are, we will provide the appropriate answers.
 
 ## Ideas / Plans:
 
@@ -69,7 +71,8 @@ Some of these choices are more for testing purposes rather than actual use. How 
 (Plans that are highlighted **in bold** are plans that are approved by Mr. Dillon. Not all plans are required to be approved to follow through (for example, branching, since it is more of an internal development)
 
 - ~~Branching: We will branch off to do our work and push the latest **working version** of our project onto main. This way, we will always have a working version to refer back to and not need to be as cautious when working in experimental environments.~~
-- SQLITE3: Instead of using Classes, we have switched to Sqlite3, a MUCH better alternative for our data organization. We have finally been able to create content because of this!
+- ~~SQLITE3: Instead of using Classes, we have switched to Sqlite3, a MUCH better alternative for our data organization. We have finally been able to create content because of this!~~
+- WORK: Dua is currently handling reading data from the files provided, whilst Naf is working on the sqlite tables themselves (setup, testing, etc.). We are using seperate branches for this, as always.
 
 ## Concerns:
 

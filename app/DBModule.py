@@ -1,7 +1,10 @@
+# Modules
 import sqlite3
+import os
 
 dbFile = "studentData.db"
 
+# Create the tables
 def initDB():
     db = sqlite3.connect(dbFile)
     c = db.cursor()
@@ -54,13 +57,15 @@ def initDB():
     db.commit()
     db.close()
 
-def addGPA(id, eng, math, science, ss, artMusic):
+# Add student gpa data
+def addGPA(id, eng, math, science, ss, fLang, artMusic):
     db = sqlite3.connect(dbFile)
     c = db.cursor()
-    c.execute("INSERT INTO students(studentID, englishGPA, mathGPA, scienceGPA, socialStudiesGPA, artMusicGPA) VALUES (?, ?, ?, ?, ?, ?)", (id, eng, math, science, ss, artMusic))
+    c.execute("INSERT INTO students(studentID, englishGPA, mathGPA, scienceGPA, socialStudiesGPA, foreignLangGPA, artMusicGPA) VALUES (?, ?, ?, ?, ?, ?, ?)", (id, eng, math, science, ss, fLang, artMusic))
     db.commit()
     db.close()
 
+# Adds course ranking data
 def addCourseRank(id, ruleID, ruleName, oneID, twoID, threeID, fourID):
     db = sqlite3.connect(dbFile)
     c = db.cursor()
@@ -68,6 +73,7 @@ def addCourseRank(id, ruleID, ruleName, oneID, twoID, threeID, fourID):
     db.commit()
     db.close()
 
+# Adds student AP data
 def addStudentAP(id, courseID, status):
     db = sqlite3.connect(dbFile)
     c = db.cursor()
@@ -75,6 +81,7 @@ def addStudentAP(id, courseID, status):
     db.commit()
     db.close()
 
+# Adds Ap Course data
 def addApCourses(id, name, totalSeats, seatsTaken, seatsRemaining): # use only once
     db = sqlite3.connect(dbFile)
     c = db.cursor()
@@ -82,7 +89,7 @@ def addApCourses(id, name, totalSeats, seatsTaken, seatsRemaining): # use only o
     db.commit()
     db.close()
 
-# WIP
+# WIP, prints the table for reader viewability
 def viewTable():
     db = sqlite3.connect(dbFile)
     c = db.cursor()
@@ -95,3 +102,7 @@ def viewTable():
             print(row)
 
     db.close()
+
+# Deletes studentData.db for testing purposes
+def delFile():
+    os.remove("studentData.db")
