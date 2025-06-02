@@ -19,7 +19,7 @@ def initDB():
               )
     c.execute('''
               CREATE TABLE IF NOT EXISTS courseRanking (
-              studentID INTEGER PRIMARY KEY,
+              studentID INTEGER,
               ruleID INTEGER,
               ruleName TEXT,
               courseOneID TEXT,
@@ -32,7 +32,7 @@ def initDB():
           )
     c.execute('''
               CREATE TABLE IF NOT EXISTS studentAP(
-              studentID INTEGER PRIMARY KEY,
+              studentID INTEGER,
               courseID TEXT,
               status TEXT,
               FOREIGN KEY (studentID) REFERENCES students(studentID)
@@ -74,7 +74,7 @@ def addStudentAP(id, courseID, status):
     db.commit()
     db.close()
 
-def addApCourses(id, name, totalSeats, seatsTaken, seatsRemaining):
+def addApCourses(id, name, totalSeats, seatsTaken, seatsRemaining): # use only once
     db = sqlite3.connect(dbFile)
     c = db.cursor()
     c.execute("INSERT INTO apCourses(courseID, courseName, totalSeats, seatsTaken, seatsRemaining) VALUES (?, ?, ?, ?, ?)", (id, name, totalSeats, seatsTaken, seatsRemaining))
