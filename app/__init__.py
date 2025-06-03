@@ -15,4 +15,4 @@ with open('ap_preferences.csv', newline='') as csvfile:
     #fieldnames = ["student_id","rule_id","rule_name","courses_1","courses_2","courses_3","courses_4"]
     studentPref = csv.DictReader(csvfile)
 
-db.viewTable()
+print(db.viewTable())
