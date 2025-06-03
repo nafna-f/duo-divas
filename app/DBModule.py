@@ -2,6 +2,7 @@
 import sqlite3
 import os
 
+# Point of reference for the file
 dbFile = "studentData.db"
 
 # Create the tables
@@ -57,7 +58,7 @@ def initDB():
     db.commit()
     db.close()
 
-# Add student gpa data
+# Add student GPA data
 def addGPA(id, eng, math, science, ss, fLang, artMusic):
     db = sqlite3.connect(dbFile)
     c = db.cursor()
@@ -81,7 +82,7 @@ def addStudentAP(id, courseID, status):
     db.commit()
     db.close()
 
-# Adds Ap Course data
+# Adds AP Course data
 def addApCourses(id, name, totalSeats, seatsTaken, seatsRemaining): # use only once
     db = sqlite3.connect(dbFile)
     c = db.cursor()
@@ -105,4 +106,4 @@ def viewTable():
 
 # Deletes studentData.db for testing purposes
 def delFile():
-    os.remove("studentData.db")
+    os.remove(dbFile)
