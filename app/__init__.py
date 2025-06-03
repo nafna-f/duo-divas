@@ -1,8 +1,10 @@
 # Modules
 
 import DBModule as db
+import functions as func
 import random
 import os
+import csv
 
 # For Developer Reference:
 # GPA: id, eng, math, science, ss, fLang, artMusic
@@ -19,16 +21,17 @@ if os.path.exists("studentData.db"):
 # Create necessary tables
 db.initDB()
 
-# Populate tables w/ random data {TESTING, W.I.P}
-for x in range(10):
-    db.addGPA(random.randint(0, 10000), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0))
-    db.addCourseRank(random.randint(0, 10000), random.randint(0, 10), "RULENAME", "COURSEONE", "COURSETWO", "COURSETHREE", "COURSEFOUR")
-    db.addStudentAP(random.randint(0, 10000), "COURSENAME", random.choice(["TRUE", "FALSE"]))
-    testSeatsTotal = random.randint(20, 30)
-    testSeatsTaken = testSeatsTotal - random.randint(0, testSeatsTotal)
-    testSeatsRemaining = testSeatsTotal - testSeatsTaken
-    print("Table Populated")
+# Read and place data into sqlite tables accordingly for subject_gpa.csv
+with open('subject_gpa.csv', newline='') as csvfile:
+    gpaRaw = csv.DictReader(csvfile)
+    for row in gpaRaw:
+        db.addGPA(row.get("StudentID"), row.get("English/ENL Avg"), row.get("Mathematics Avg"), row.get("Science Avg"),
+        row.get("Social Studies Avg"), row.get("Foreign Language Avg"), row.get("Arts Avg"))
 
-db.addApCourses("COURSEID", "COURSENAME", testSeatsTotal, testSeatsTaken, testSeatsRemaining)
-print("apCourses Populated")
+# Read and place data into sqlite tables accordingly for ap_preferences.csv
+with open('ap_preferences.csv', newline='') as csvfile:
+    #fieldnames = ["student_id","rule_id","rule_name","courses_1","courses_2","courses_3","courses_4"]
+    studentPref = csv.DictReader(csvfile)
+
+# Print the table for viewer readability
 db.viewTable()

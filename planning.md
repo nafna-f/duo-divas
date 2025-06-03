@@ -72,7 +72,10 @@ Some of these choices are more for testing purposes rather than actual use. How 
 
 - ~~Branching: We will branch off to do our work and push the latest **working version** of our project onto main. This way, we will always have a working version to refer back to and not need to be as cautious when working in experimental environments.~~
 - ~~SQLITE3: Instead of using Classes, we have switched to Sqlite3, a MUCH better alternative for our data organization. We have finally been able to create content because of this!~~
-- WORK: Dua is currently handling reading data from the files provided, whilst Naf is working on the sqlite tables themselves (setup, testing, etc.). We are using seperate branches for this, as always.
+- ~~SETUP: Dua is currently handling reading data from the files provided, whilst Naf is working on the sqlite tables themselves (setup, testing, etc.). We are using seperate branches for this, as always.~~
+- THE BREAKDOWN: This is the main part of the project. We're breaking it down into multiple portions, as follows. We will start with BEST COME FIRST. 
+{ Make a helper function STUDENT_PREFS that will return a nicer, concise list of the APs the students actually prefer and not all that BLOAT.}
+{ Organize Lists by overall highest average. Use CHECK_ELIGIBILITY to see if they are eligible. }
 
 ## Concerns:
 
