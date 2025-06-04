@@ -75,6 +75,7 @@ def addStudentAP(id, courseID, status):
     c.execute("INSERT INTO studentAP(studentID, courseID, status) VALUES (?, ?, ?)", (id, courseID, status))
     db.commit()
     db.close()
+    print("row Added")
 
 def addApCourses(id, name, totalSeats, seatsTaken, seatsRemaining): # use only once
     db = sqlite3.connect(dbFile)
