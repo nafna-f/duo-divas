@@ -58,11 +58,11 @@ def initDB():
     db.commit()
     db.close()
 
-# Add student GPA data
-def addGPA(id, eng, math, science, ss, fLang, artMusic):
+def addGPA(id, eng, math, science, ss, foreignLang, artMusic):
     db = sqlite3.connect(dbFile)
     c = db.cursor()
-    c.execute("INSERT INTO students(studentID, englishGPA, mathGPA, scienceGPA, socialStudiesGPA, foreignLangGPA, artMusicGPA) VALUES (?, ?, ?, ?, ?, ?, ?)", (id, eng, math, science, ss, fLang, artMusic))
+    c.execute("INSERT INTO students(studentID, englishGPA, mathGPA, scienceGPA, socialStudiesGPA, foreignLangGPA, artMusicGPA) VALUES (?, ?, ?, ?, ?, ?, ?)", (id, eng, math, science, ss, foreignLang, artMusic))
+    #print("row added")
     db.commit()
     db.close()
 
@@ -81,6 +81,7 @@ def addStudentAP(id, courseID, status):
     c.execute("INSERT INTO studentAP(studentID, courseID, status) VALUES (?, ?, ?)", (id, courseID, status))
     db.commit()
     db.close()
+    print("row Added")
 
 # Adds AP Course data
 def addApCourses(id, name, totalSeats, seatsTaken, seatsRemaining): # use only once

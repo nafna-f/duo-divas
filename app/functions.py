@@ -14,7 +14,9 @@ def cleanStudentPrefs(id):
     for data in cursor.fetchall():
         print(data)
     db.close()
+
 # Best Come First
+
 
 def bestComeFirst():
     print("Executing 'bestComeFirst'...")
