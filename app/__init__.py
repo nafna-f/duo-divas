@@ -60,3 +60,5 @@ with open('ap_preferences.csv', newline='') as csvfile:
                 db.addStudentAP(row.get("student_id"), course, "Not Determined Yet")
 '''
 print(db.viewTable())
+print("\n Table printed, now testing cleanStudentPrefs...")
+func.cleanStudentPrefs("108945")
