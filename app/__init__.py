@@ -1,26 +1,45 @@
-# Testing with populated data since currently, we don't have the right files.
-
-import DBModule as db
-import random
-
-# populate the db
-
-# GPA: id, eng, math, science, ss, artMusic
-# courseRank: id, ruleID, ruleName, oneID, twoID, threeID, fourID
-# studentAP: id, courseID, status
-# ApCourses: id, name, totalSeats, seatsTaken, seatsRemaining
+import sqlite3
+import csv
+import DBModule as db 
 
 db.initDB()
 
-for x in range(10):
-    db.addGPA(random.randint(0, 10000), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0), random.uniform(0.0, 100.0))
-    db.addCourseRank(random.randint(0, 10000), random.randint(0, 10), "RULENAME", "COURSEONE", "COURSETWO", "COURSETHREE", "COURSEFOUR")
-    db.addStudentAP(random.randint(0, 10000), "COURSENAME", random.choice(["TRUE", "FALSE"]))
-    testSeatsTotal = random.randint(20, 30)
-    testSeatsTaken = testSeatsTotal - random.randint(0, testSeatsTotal)
-    testSeatsRemaining = testSeatsTotal - testSeatsTaken
-    print("ran once") # test cmd
+# Add the data to the database
+with open('subject_gpa.csv', newline='') as csvfile:
+    gpaRaw = csv.DictReader(csvfile)
+    for row in gpaRaw:
+        db.addGPA(row.get("StudentID"), row.get("English/ENL Avg"), row.get("Mathematics Avg"), row.get("Science Avg"),
+                  row.get("Social Studies Avg"), row.get("Foreign Language Avg"), row.get("Arts Avg"))
 
-db.addApCourses("COURSEID", "COURSENAME", testSeatsTotal, testSeatsTaken, testSeatsRemaining) # only run once
-print("ran apCourses")
-db.viewTable()
+with open('ap_courses.csv', newline = '') as csvfile: 
+    courses = csv.DictReader(csvfile)
+    for row in courses: 
+        db.addApCourses(row.get("Course Code"), row.get("Course Name"), row.get("Number of Seats"), 
+                        0, row.get("Number of Seats"))
+
+with open('ap_preferences.csv', newline='') as csvfile:
+    studentPref = csv.DictReader(csvfile)
+    courseKeys = ["courses_1", "courses_2", "courses_3", "courses_4"]
+    studentPref = list(studentPref)
+    print(len(studentPref))
+    for x in range(50):
+        row = studentPref[x]
+        apsPicked = [row.get(i) for i in courseKeys]
+        #print(apsPicked)
+        db.addCourseRank(row.get("student_id"), row.get("rule_id"), row.get("rule_name"), 
+                        apsPicked[0], apsPicked[1], apsPicked[2], apsPicked[3])
+        for course in apsPicked:
+            if course != "":
+                db.addStudentAP(row.get("student_id"), course, "Not Determined Yet")
+
+    '''
+    for row in studentPref:
+        apsPicked = [row.get(i) for i in courseKeys]
+        #print(apsPicked)
+        db.addCourseRank(row.get("student_id"), row.get("rule_id"), row.get("rule_name"), 
+                        apsPicked[0], apsPicked[1], apsPicked[2], apsPicked[3])
+        for course in apsPicked:
+            if course != "":
+                db.addStudentAP(row.get("student_id"), course, "Not Determined Yet")
+'''
+print(db.viewTable())
