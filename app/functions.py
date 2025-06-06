@@ -12,13 +12,16 @@ def removeDuplicates():
     db.commit()
     db.close()
 
+
 def bestComeFirst(percentage):
     for i in range(1, 5):
-        bcfLevel(i, percentage)
+        bcfLevel(i, percentage, False)
+    for i in range(1, 5):
+        bcfLevel(i, percentage, True)
 
 
 # Best Come First Method Helper
-def bcfLevel(level, percentage):
+def bcfLevel(level, percentage, Waitlist):
     dbFile = "studentData.db"
     db = sqlite3.connect(dbFile)
     c = db.cursor()
@@ -45,8 +48,12 @@ def bcfLevel(level, percentage):
     courseColumn = levelDict.get(level)
     #print(courseColumn)
     
-    
-    c.execute(f"SELECT DISTINCT {courseColumn} FROM courseRanking WHERE (ruleID = 123 OR ruleID = 133 OR ruleID = 134 OR ruleID = 135) AND {courseColumn} NOT LIKE '%WAITLIST'")
+    if waitList:
+        waitlistQ = "LIKE"
+    else:
+        waitlistQ = "NOT LIKE"
+
+    c.execute(f"SELECT DISTINCT {courseColumn} FROM courseRanking WHERE (ruleID = 123 OR ruleID = 133 OR ruleID = 134 OR ruleID = 135) AND {courseColumn} {waitListQ}'%WAITLIST'")
     coursesRanked = list(c.fetchall())
     coursesRanked = [ap for courses in coursesRanked for ap in courses if ap not in exclusions]
     print(coursesRanked)
