@@ -5,7 +5,7 @@ dbFile = "studentData.db"
 def initDB():
     db = sqlite3.connect(dbFile)
     c = db.cursor()
-
+    print("Initializing database...")
     c.execute('''
               CREATE TABLE IF NOT EXISTS students (
               studentID INTEGER PRIMARY KEY,
@@ -20,6 +20,7 @@ def initDB():
               )
     c.execute('''
               CREATE TABLE IF NOT EXISTS courseRanking (
+              rowIndex INTEGER PRIMARY KEY AUTOINCREMENT,
               studentID INTEGER,
               ruleID INTEGER,
               ruleName TEXT,
@@ -33,6 +34,7 @@ def initDB():
           )
     c.execute('''
               CREATE TABLE IF NOT EXISTS studentAP(
+              rowIndex INTEGER PRIMARY KEY AUTOINCREMENT,
               studentID INTEGER,
               courseID TEXT,
               status TEXT,
@@ -54,7 +56,7 @@ def initDB():
     db.commit()
     db.close()
 
-def addGPA(id, eng, math, science, ss, foreignLang, artMusic):
+def addGPA(id, eng, math, science, ss, foreignLang, artMusic, numAPs):
     db = sqlite3.connect(dbFile)
     c = db.cursor()
     c.execute("INSERT INTO students(studentID, englishGPA, mathGPA, scienceGPA, socialStudiesGPA, foreignLangGPA, artMusicGPA) VALUES (?, ?, ?, ?, ?, ?, ?)", (id, eng, math, science, ss, foreignLang, artMusic))
@@ -75,7 +77,7 @@ def addStudentAP(id, courseID, status):
     c.execute("INSERT INTO studentAP(studentID, courseID, status) VALUES (?, ?, ?)", (id, courseID, status))
     db.commit()
     db.close()
-    print("row Added")
+    #print("row Added")
 
 def addApCourses(id, name, totalSeats, seatsTaken, seatsRemaining): # use only once
     db = sqlite3.connect(dbFile)
