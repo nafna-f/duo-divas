@@ -14,8 +14,7 @@ def initDB():
               scienceGPA DOUBLE,
               socialStudiesGPA DOUBLE,
               foreignLangGPA DOUBLE,
-              artMusicGPA DOUBLE,
-              numberOfAPs INTEGER
+              artMusicGPA DOUBLE
               )
               '''
               )
@@ -60,7 +59,7 @@ def initDB():
 def addGPA(id, eng, math, science, ss, foreignLang, artMusic, numAPs):
     db = sqlite3.connect(dbFile)
     c = db.cursor()
-    c.execute("INSERT INTO students(studentID, englishGPA, mathGPA, scienceGPA, socialStudiesGPA, foreignLangGPA, artMusicGPA, numberOfAPs) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (id, eng, math, science, ss, foreignLang, artMusic, numAPs))
+    c.execute("INSERT INTO students(studentID, englishGPA, mathGPA, scienceGPA, socialStudiesGPA, foreignLangGPA, artMusicGPA) VALUES (?, ?, ?, ?, ?, ?, ?)", (id, eng, math, science, ss, foreignLang, artMusic))
     #print("row added")
     db.commit()
     db.close()

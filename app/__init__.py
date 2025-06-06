@@ -6,14 +6,14 @@ import os
 
 if not os.path.isfile("studentData.db"):
     db.initDB()
-
+    print("Please be patient, this process can take up to several minutes...")
     # Add the data to the database
     with open('subject_gpa.csv', newline='') as csvfile:
         print("Adding student information...")
         gpaRaw = csv.DictReader(csvfile)
         for row in gpaRaw:
             db.addGPA(row.get("StudentID"), row.get("English/ENL Avg"), row.get("Mathematics Avg"), row.get("Science Avg"),
-                    row.get("Social Studies Avg"), row.get("Foreign Language Avg"), row.get("Arts Avg"), 0)
+                    row.get("Social Studies Avg"), row.get("Foreign Language Avg"), row.get("Arts Avg"))
 
     with open('ap_courses.csv', newline = '') as csvfile: 
         print("Adding AP course information...")
@@ -50,5 +50,5 @@ if not os.path.isfile("studentData.db"):
     '''
     func.removeDuplicates()
 
-print(func.bcfLevel(4, 100))
-#print(db.viewTable())
+#print(func.bestComeFirst(100))
+print(db.viewTable())
